@@ -1,3 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
 
-<h1>Hola chicos 4to</h1>
-<h1>Buenos dias</h1>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Comunicación con Arduino</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+
+<body>
+    <!-- Sección de navegación -->
+    <!-- Sección de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="http://3.12.64.151/"><strong>DIALTRA</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Nombre Operario" id="nombreRegistro">
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-success" href="#" id="crear" data-valor="crear">Crear
+                            Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Registro a actualizar"
+                                id="idActualizaRegistro">
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-success" href="#" id="actualizar"
+                            data-valor="actualizar">Actualizar Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Registro a borrar"
+                                id="idBorraRegistro">
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-success" href="#" id="borrar" data-valor="borrar">Borrar
+                            Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-success" href="#" id="consultar" data-valor="consultar">Leer
+                            Registros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <img src="img/operador.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Estado de operador</h5>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="switchReverse" value="0">
+                            <label class="custom-control-label" for="switchReverse">
+                                <span id="switchText">Operando</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 mx-auto">
+                <h1 class="text-center" id="valorCodigo"></h1>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 mx-auto">
+                <div class="text-center" id="respuesta"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Scripts -->
+    <script>
+        const switchElement = document.getElementById('switchReverse');
+        const switchTextElement = document.getElementById('switchText');
+
+        switchElement.addEventListener('change', function () {
+            if (this.checked) {
+                switchTextElement.textContent = 'Durmiendo';
+            } else {
+                switchTextElement.textContent = 'Operando';
+            }
+        });
+    </script>
+</body>
+
+</html>

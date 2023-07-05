@@ -1,0 +1,9 @@
+.botontop {
+    background-color: white;
+    color: black !important;
+}
+
+#valorCodigo {
+    font-size: 4em !important;
+    color: red !important;
+}
